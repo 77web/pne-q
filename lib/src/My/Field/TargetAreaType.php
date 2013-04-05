@@ -3,6 +3,7 @@
 namespace My\Field;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class TargetAreaType extends AbstractType
@@ -21,16 +22,12 @@ class TargetAreaType extends AbstractType
         }
     }
     
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $resolver->setDefaults(array(
-            'choices' => $this->choices,
-        ));
-    }
-    
-    public function getParent()
-    {
-        return 'choice';
+        $builder
+          ->add('target', 'choice', array('choices' => $this->choices, 'required' => $options['required'], 'label' => false))
+          ->add('plugin_name', 'text', array('required' => $options['required']))
+        ;
     }
     
     public function getName()

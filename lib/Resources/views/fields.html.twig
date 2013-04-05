@@ -28,3 +28,10 @@
     </div>
 {% endspaceless %}
 {% endblock choice_widget_expanded %}
+
+{% block target_area_widget %}
+  <div {{ block('widget_container_attributes') }}>
+    {{ form_widget(form.target) }}<br />
+    <label>(プラグイン名:{{ form_widget(form.plugin_name) }})</label>
+  </div>
+{% endblock %}

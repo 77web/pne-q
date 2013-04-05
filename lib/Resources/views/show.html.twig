@@ -9,6 +9,8 @@
       {% for val in value %}
         {{ val|trans }}{% if not loop.last %} / {% endif %}
       {% endfor %}
+    {% elseif name == 'target' %}
+      {{ value.target|trans }}{% if value.plugin_name %}(プラグイン名：{{ value.plugin_name }}){% endif %}
     {% else %}
       {{ value|trans }}
     {% endif %}
