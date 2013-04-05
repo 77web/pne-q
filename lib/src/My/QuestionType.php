@@ -38,5 +38,9 @@ abstract class QuestionType extends AbstractType
     public function finishView(FormView $view, FormInterface $form, array $options)
     {
         $view->children['description']->vars['help'] = '「いつ・どの画面で・何を・どのようにしたとき、何が・どうなった」がわかるように、行った作業内容や操作内容を具体的に書いてください。';
+        if (isset($form['error_message']))
+        {
+            $view->children['error_message']->vars['help'] = '表示されているエラーメッセージがあればコピーペーストしてください。';
+        }
     }
 }
