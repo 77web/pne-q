@@ -35,3 +35,14 @@
     <label>(プラグイン名:{{ form_widget(form.plugin_name) }})</label>
   </div>
 {% endblock %}
+
+{% block form_row %}
+{% spaceless %}
+    <div>
+        {{ form_label(form) }}
+        {% if help is defined %}<p class="help_text">{{ help }}</p>{% endif %}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}

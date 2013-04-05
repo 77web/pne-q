@@ -4,7 +4,13 @@
 
 {% block main %}
   <form action="" method="post">
-    {{ form_widget(form) }}
+    {% for child in form %}
+      {% if child.vars.help is defined %}
+        {{ form_row(child, { 'help': child.vars.help  }) }}
+      {% else %}
+        {{ form_row(child) }}
+      {% endif %}
+    {% endfor %}
     <button type="submit">{{ 'Generate'|trans }}</button>
   </form>
 {% endblock %}
