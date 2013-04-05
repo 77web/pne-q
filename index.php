@@ -3,6 +3,7 @@
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
 use My\QuestionType;
 
 require __DIR__.'/lib/vendor/autoload.php';
@@ -18,6 +19,7 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 
     return $translator;
 }));
+$app->register(new ValidatorServiceProvider());
 $app['question_form'] = $app['form.factory']->create(new QuestionType());
 
 $app->get('/', function() use ($app){
