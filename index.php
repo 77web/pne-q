@@ -3,6 +3,7 @@
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use My\QuestionType;
 
@@ -19,12 +20,20 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 
     return $translator;
 }));
+$app->register(new UrlGeneratorServiceProvider());
 $app->register(new ValidatorServiceProvider());
+
 $app['question_form'] = $app['form.factory']->create(new QuestionType());
 
+//メニュー
+$app->get('/', function() use ($app){
+    return $app['twig']->render('index.html.twig');
+})->bind('homepage');
+
+//カスタマイズ質問
 $app->get('/custom', function() use ($app){
     return $app['twig']->render('form.html.twig', array('form' => $app['question_form']->createView()));
-});
+})->bind('custom');
 $app->post('/custom', function() use ($app){
     $form = $app['question_form'];
     $form->bind($app['request']);
