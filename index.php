@@ -5,6 +5,7 @@ use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
+use My\BugType;
 use My\QuestionType;
 
 require __DIR__.'/lib/vendor/autoload.php';
@@ -24,6 +25,7 @@ $app->register(new UrlGeneratorServiceProvider());
 $app->register(new ValidatorServiceProvider());
 
 $app['question_form'] = $app['form.factory']->create(new QuestionType());
+$app['bug_form'] = $app['form.factory']->create(new BugType());
 
 //メニュー
 $app->get('/', function() use ($app){
@@ -37,7 +39,21 @@ $app->get('/custom', function() use ($app){
 $app->post('/custom', function() use ($app){
     $form = $app['question_form'];
     $form->bind($app['request']);
+    if ($form->isValid())
+    {
+        return $app['twig']->render('show.html.twig', array('data' => $form->getData()));
+    }
 
+    return $app['twig']->render('form.html.twig', array('form' => $form->createView()));
+});
+
+//バグ
+$app->get('/bug', function() use ($app){
+    return $app['twig']->render('form.html.twig', array('form' => $app['bug_form']->createView()));
+})->bind('bug');
+$app->post('/bug', function() use ($app){
+    $form = $app['bug_form'];
+    $form->bind($app['request']);
     if ($form->isValid())
     {
         return $app['twig']->render('show.html.twig', array('data' => $form->getData()));
