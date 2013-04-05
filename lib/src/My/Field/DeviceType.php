@@ -3,6 +3,8 @@
 namespace My\Field;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class DeviceType extends AbstractType
@@ -30,6 +32,7 @@ class DeviceType extends AbstractType
             'choices' => $this->choices,
             'expanded' => true,
             'multiple' => true,
+            'help' => '',
         ));
     }
     
@@ -41,5 +44,10 @@ class DeviceType extends AbstractType
     public function getName()
     {
         return 'device';
+    }
+    
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        $view->vars['help'] = '' != $options['help'] ? $options['help'] : 'なにでSNSを見たときに現象が発生しているのか選択してください。(複数選択可)';
     }
 }

@@ -4,6 +4,8 @@ namespace My;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\Validator\Constraints as Assert;
 use My\Field\DeviceType;
 use My\Field\PhpVersionType;
@@ -31,5 +33,10 @@ abstract class QuestionType extends AbstractType
     public function getName()
     {
         return 'question';
+    }
+    
+    public function finishView(FormView $view, FormInterface $form, array $options)
+    {
+        $view->children['description']->vars['help'] = '「いつ・どの画面で・何を・どのようにしたとき、何が・どうなった」がわかるように、行った作業内容や操作内容を具体的に書いてください。';
     }
 }

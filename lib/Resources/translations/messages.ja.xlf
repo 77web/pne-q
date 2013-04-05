@@ -67,6 +67,10 @@
           <source>xampp</source>
           <target>Windowsのxampp</target>
         </trans-unit>
+        <trans-unit id="109">
+          <source>private</source>
+          <target>専用サーバー</target>
+        </trans-unit>
 
         <trans-unit id="201">
           <source>core</source>
