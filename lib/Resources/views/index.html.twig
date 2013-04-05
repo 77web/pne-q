@@ -1,9 +1,26 @@
 {% extends "base.html.twig" %}
 
 {% block main %}
-  <ul>
-    <li><a href="{{ path('install') }}">インストール</a>方法がわからない、できない</li>
-    <li><a href="{{ path('bug') }}">バグ</a>動かない、表示されない、予想と違う表示</li>
-    <li><a href="{{ path('custom') }}">カスタマイズ</a>表示や動作を変えたいがやり方がわからない</li>
-  </ul>
+  <div id="about">
+    <h2>[OpenPNE 公式SNSに質問する前に]とは…？</h2>
+    <p>
+      <a href="http://sns.openpne.jp" target="_blank">OpenPNE公式SNS</a>に投稿される質問で、必要事項が不足しているために回答できないものがあまりに多いので、フォームを埋めることで初心者の方でも必要事項を満たす質問ができるように、私@77webが<strong>勝手に</strong>作ったものです。OpenPNE開発元の手嶋屋さんとは一切関係がありませんので、[OpenPNE 公式SNSに質問する前に]について手嶋屋さんに問い合わせないでください。<br />
+      フォームを送信しただけではどこにもデータは送られません。（できあがった質問文wの使って、公式SNSへの質問はご自身で行ってください）<br />
+      入力内容は私のサーバーには保存しませんが、SSLを使っていませんので個人情報など不特定多数に知られたくない情報は入力しないでください。<br />
+    </p>
+    <p>運営者：77web(<a href="http://twitter.com/77web" target="_blank">twitter</a>・<a href="http://sns.openpne.jp/member/8402" target="_blank">公式SNSプロフィール</a>)</p>
+  </div>
+  <div id="menu">
+    <h2>フォームを使って質問文を作る</h2>
+    <ul>
+      <li><a href="{{ path('install') }}">インストール</a>方法がわからない、できない</li>
+      <li><a href="{{ path('bug') }}">バグ</a>動かない、表示されない、予想と違う表示</li>
+      <li><a href="{{ path('custom') }}">カスタマイズ</a>表示や動作を変えたいがやり方がわからない</li>
+    </ul>
+  </div>
+  
+  <div id="footer">
+    <p>[OpenPNE 公式SNSに質問する前に]の使い勝手に関するご意見・提案など歓迎です。<a href="http://github.com/77web/pne-q" target="_blank">githubのレポジトリ</a>にissueを作成するか、pull requestを送ってください。</p>
+    <p>&copy; 2013 Hiromi Hishida, powered by <a href="http://silex.sensiolabs.org" target="_blank">Silex</a></p>
+  </div>
 {% endblock %}
