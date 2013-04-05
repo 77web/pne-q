@@ -13,6 +13,7 @@ class CustomType extends QuestionType
         $builder
           ->remove('server')
           ->remove('php_version')
+          ->remove('error_message')
         ;
     }
     
