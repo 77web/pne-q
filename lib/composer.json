@@ -1,5 +1,12 @@
 {
+    "autoload": {
+      "psr-0": { "My": "src/" }
+    },
     "require": {
-        "silex/silex": "1.0.*@dev"
+        "silex/silex": "1.0.*@dev",
+        "symfony/form": ">=2.1.4,<2.3-dev",
+        "symfony/validator": ">=2.1,<2.3-dev",
+        "symfony/twig-bridge": ">=2.1,<2.3-dev",
+        "twig/twig": ">=1.8.0,<2.0-dev"
     }
 }
