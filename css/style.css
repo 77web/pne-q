@@ -31,6 +31,11 @@ textarea#bug_description, textarea#custom_description, textarea#install_descript
 {
   height: 240px;
 }
+.button
+{
+  text-align: center;
+  margin: 10px;
+}
 /* show */
 #topic-body
 {

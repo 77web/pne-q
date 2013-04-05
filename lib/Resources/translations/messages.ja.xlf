@@ -101,6 +101,11 @@
           <source>mail</source>
           <target>メール関係</target>
         </trans-unit>
+
+        <trans-unit id="900">
+          <source>Generate</source>
+          <target>質問文作成</target>
+        </trans-unit>
       </body>
     </file>
 </xliff>
