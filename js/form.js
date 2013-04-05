@@ -1,4 +1,20 @@
 $(document).ready(function()
 {
-  $('#bug_target_target').change(function(){ if ($(this).val() == 'core'){ $('#bug_target label').hide(); }else{ $('#bug_target label').show(); } });
+  $('#bug_target_target').change(pneq.handlePluginNameInput);
+  $('#custom_target_target').change(pneq.handlePluginNameInput);
 });
+
+pneq = 
+{
+  handlePluginNameInput: function()
+  {
+    if ($(this).val() == 'core')
+    {
+      $(this).parent('div').find('label').hide();
+    }
+    else
+    {
+      $(this).parent('div').find('label').show();
+    }
+  }
+};
