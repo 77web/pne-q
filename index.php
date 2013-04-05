@@ -13,6 +13,11 @@ $app->register(new FormServiceProvider());
 $app->register(new TwigServiceProvider(), array('twig.path' => __DIR__.'/lib/Resources/views'));
 $app->register(new TranslationServiceProvider(), array('locale' => 'ja'));
 
+$app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
+    $translator->addResource('xliff', __DIR__.'/lib/Resources/translations/messages.ja.xlf', 'ja');
+
+    return $translator;
+}));
 $app['question_form'] = $app['form.factory']->create(new QuestionType());
 
 $app->get('/', function() use ($app){
