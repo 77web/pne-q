@@ -5,28 +5,18 @@ namespace My;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use My\Field\DeviceType;
 use My\Field\PneVersionType;
+use My\Field\TargetAreaType;
 
 class QuestionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $devices = array(
-          'pc' => 'pc',
-          'mobile' => 'mobile',
-          'smartphone' => 'smartphone',
-          'cli' => 'cli',
-          'mail' => 'mail',
-        );
-        $targets = array(
-          'core' => 'core',
-          'plugin' => 'plugin',
-        );
-        
         $builder
-          ->add('version', new PneVersionType())
-          ->add('target', 'choice', array('choices' => $targets))
-          ->add('device', 'choice', array('choices' => $devices, 'multiple' => true, 'expanded' => true, 'required' => false))
+          ->add('pne_version', new PneVersionType())
+          ->add('target', new TargetAreaType())
+          ->add('device', new DeviceType())
           ->add('description', 'textarea', array('constraints' => new Assert\NotBlank()))
         ;
     }
