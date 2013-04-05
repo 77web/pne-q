@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+<div id="topic-body">
+{% for name, value in data %}
+  <p>
+    [{{ name|humanize|trans }}]<br />
+    {% if name == 'device' %}
+      {% for val in value %}
+        {{ val|trans }}{% if not loop.last %} / {% endif %}
+      {% endfor %}
+    {% else %}
+      {{ value|trans }}
+    {% endif %}
+  </p>
+{% endfor %}
+</div>
+
+<p>上記枠内をコピーして<a href="{{ community_url }}" target="_blank">質問コミュニティ</a>の本文に貼り付けてください。</p>
+{% endblock %}

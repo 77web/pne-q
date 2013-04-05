@@ -29,6 +29,8 @@ $app['custom_form'] = $app['form.factory']->create(new CustomType());
 $app['bug_form'] = $app['form.factory']->create(new BugType());
 $app['install_form'] = $app['form.factory']->create(new InstallType());
 
+$app['twig']->addGlobal('community_url', 'http://sns.openpne.jp/communityTopic/new/938');
+
 //メニュー
 $app->get('/', function() use ($app){
     return $app['twig']->render('index.html.twig');
