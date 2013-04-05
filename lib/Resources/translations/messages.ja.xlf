@@ -6,6 +6,89 @@
           <source>Description</source>
           <target>説明</target>
         </trans-unit>
+        <trans-unit id="2">
+          <source>Error message</source>
+          <target>エラーメッセージ(コピーペーストしてください)</target>
+        </trans-unit>
+        <trans-unit id="3">
+          <source>Pne version</source>
+          <target>OpenPNEのバージョン</target>
+        </trans-unit>
+        <trans-unit id="4">
+          <source>Php version</source>
+          <target>PHPのバージョン</target>
+        </trans-unit>
+        <trans-unit id="5">
+          <source>Target</source>
+          <target>コア・プラグインの別</target>
+        </trans-unit>
+        <trans-unit id="6">
+          <source>Device</source>
+          <target>閲覧環境</target>
+        </trans-unit>
+        <trans-unit id="7">
+          <source>Server</source>
+          <target>サーバー環境</target>
+        </trans-unit>
+
+        <trans-unit id="101">
+          <source>home</source>
+          <target>自宅サーバー</target>
+        </trans-unit>
+        <trans-unit id="103">
+          <source>vps</source>
+          <target>VPS</target>
+        </trans-unit>
+        <trans-unit id="104">
+          <source>cowboy</source>
+          <target>サーバーカウボーイ</target>
+        </trans-unit>
+        <trans-unit id="105">
+          <source>chikappa</source>
+          <target>ロリポップ(チカッパプラン)</target>
+        </trans-unit>
+        <trans-unit id="106">
+          <source>heteml</source>
+          <target>ヘテムル</target>
+        </trans-unit>
+        <trans-unit id="107">
+          <source>sakura.ne.jp</source>
+          <target>さくらのレンタルサーバー</target>
+        </trans-unit>
+        <trans-unit id="108">
+          <source>xampp</source>
+          <target>Windowsのxampp</target>
+        </trans-unit>
+
+        <trans-unit id="201">
+          <source>core</source>
+          <target>コア</target>
+        </trans-unit>
+        <trans-unit id="202">
+          <source>plugin</source>
+          <target>プラグイン</target>
+        </trans-unit>
+
+        <trans-unit id="301">
+          <source>pc</source>
+          <target>パソコン</target>
+        </trans-unit>
+        <trans-unit id="302">
+          <source>mobile</source>
+          <target>従来型携帯電話</target>
+        </trans-unit>
+        <trans-unit id="303">
+          <source>smartphone</source>
+          <target>スマートフォン</target>
+        </trans-unit>
+        <trans-unit id="304">
+          <source>cli</source>
+          <target>コマンド</target>
+        </trans-unit>
+        <trans-unit id="305">
+          <source>mail</source>
+          <target>メール関係</target>
+        </trans-unit>
       </body>
     </file>
 </xliff>

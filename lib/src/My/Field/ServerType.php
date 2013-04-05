@@ -10,12 +10,13 @@ class ServerType extends AbstractType
     public function __construct()
     {
         $servers = array(
-          'home',
-          'vps',
           'sakura.ne.jp',
-          'sakura.vps',
           'coreserver',
           'xrea',
+          'cowboy',
+          'vps',
+          'home',
+          'xampp',
         );
         
         $this->choices = array();
