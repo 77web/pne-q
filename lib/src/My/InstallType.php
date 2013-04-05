@@ -12,6 +12,7 @@ class InstallType extends QuestionType
 
         $builder
           ->remove('device')
+          ->remove('pne_url')
         ;
     }
     

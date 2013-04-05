@@ -30,6 +30,14 @@
           <source>Server</source>
           <target>サーバー環境</target>
         </trans-unit>
+        <trans-unit id="8">
+          <source>Pne url</source>
+          <target>OpenPNE上に表示されているURL</target>
+        </trans-unit>
+        <trans-unit id="9">
+          <source>Reference urls</source>
+          <target>参考にしたブログ・サイトなどのURL</target>
+        </trans-unit>
 
         <trans-unit id="101">
           <source>home</source>

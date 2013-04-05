@@ -22,6 +22,8 @@ abstract class QuestionType extends AbstractType
           ->add('server', new ServerType())
           ->add('php_version', new PhpVersionType())
           ->add('description', 'textarea', array('constraints' => new Assert\NotBlank()))
+          ->add('pne_url', 'text', array('required' => false))
+          ->add('reference_urls', 'textarea', array('required' => false))
           ->add('error_message', 'textarea', array('required' => false))
         ;
     }
