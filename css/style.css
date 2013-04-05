@@ -18,7 +18,19 @@ label.control-label
   padding: 2px 5px;
   cursor: default;
 }
-
+label.required
+{
+  background: #cdcdcd;
+}
+textarea, input#bug_pne_url
+{
+  width: 480px;
+  margin: 0 auto 10px;
+}
+textarea#bug_description, textarea#custom_description, textarea#install_description
+{
+  height: 240px;
+}
 /* show */
 #topic-body
 {
