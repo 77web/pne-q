@@ -22,10 +22,10 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 $app->register(new ValidatorServiceProvider());
 $app['question_form'] = $app['form.factory']->create(new QuestionType());
 
-$app->get('/', function() use ($app){
+$app->get('/custom', function() use ($app){
     return $app['twig']->render('form.html.twig', array('form' => $app['question_form']->createView()));
 });
-$app->post('/', function() use ($app){
+$app->post('/custom', function() use ($app){
     $form = $app['question_form'];
     $form->bind($app['request']);
 
