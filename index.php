@@ -7,6 +7,7 @@ use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use My\BugType;
 use My\CustomType;
+use My\InstallType;
 
 require __DIR__.'/lib/vendor/autoload.php';
 
@@ -26,6 +27,7 @@ $app->register(new ValidatorServiceProvider());
 
 $app['custom_form'] = $app['form.factory']->create(new CustomType());
 $app['bug_form'] = $app['form.factory']->create(new BugType());
+$app['install_form'] = $app['form.factory']->create(new InstallType());
 
 //メニュー
 $app->get('/', function() use ($app){
@@ -61,5 +63,21 @@ $app->post('/bug', function() use ($app){
 
     return $app['twig']->render('form.html.twig', array('form' => $form->createView()));
 });
+
+//インストール
+$app->get('/install', function() use ($app){
+    return $app['twig']->render('form.html.twig', array('form' => $app['install_form']->createView()));
+})->bind('install');
+$app->post('/install', function() use ($app){
+    $form = $app['install_form'];
+    $form->bind($app['request']);
+    if ($form->isValid())
+    {
+        return $app['twig']->render('show.html.twig', array('data' => $form->getData()));
+    }
+
+    return $app['twig']->render('form.html.twig', array('form' => $form->createView()));
+});
+
 
 $app->run();

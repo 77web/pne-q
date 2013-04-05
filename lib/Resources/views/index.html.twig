@@ -2,8 +2,8 @@
 
 {% block main %}
   <ul>
-    <li><a href="#">インストール</a>方法がわからない、できない</li>
+    <li><a href="{{ path('install') }}">インストール</a>方法がわからない、できない</li>
     <li><a href="{{ path('bug') }}">バグ</a>動かない、表示されない、予想と違う表示</li>
-    <li><a href="{{ path('custom') }}">カスタマイズ</a>表示や動作を変えたい、自分好みのSNSを作りたい</li>
+    <li><a href="{{ path('custom') }}">カスタマイズ</a>表示や動作を変えたいがやり方がわからない</li>
   </ul>
 {% endblock %}
