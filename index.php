@@ -6,7 +6,7 @@ use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use My\BugType;
-use My\QuestionType;
+use My\CustomType;
 
 require __DIR__.'/lib/vendor/autoload.php';
 
@@ -24,7 +24,7 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 $app->register(new UrlGeneratorServiceProvider());
 $app->register(new ValidatorServiceProvider());
 
-$app['question_form'] = $app['form.factory']->create(new QuestionType());
+$app['custom_form'] = $app['form.factory']->create(new CustomType());
 $app['bug_form'] = $app['form.factory']->create(new BugType());
 
 //メニュー
@@ -34,10 +34,10 @@ $app->get('/', function() use ($app){
 
 //カスタマイズ質問
 $app->get('/custom', function() use ($app){
-    return $app['twig']->render('form.html.twig', array('form' => $app['question_form']->createView()));
+    return $app['twig']->render('form.html.twig', array('form' => $app['custom_form']->createView()));
 })->bind('custom');
 $app->post('/custom', function() use ($app){
-    $form = $app['question_form'];
+    $form = $app['custom_form'];
     $form->bind($app['request']);
     if ($form->isValid())
     {
