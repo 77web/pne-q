@@ -16,12 +16,6 @@ $app['debug'] = true;
 $app->register(new FormServiceProvider());
 $app->register(new TwigServiceProvider(), array('twig.path' => __DIR__.'/Resources/views'));
 $app->register(new TranslationServiceProvider(), array('locale' => 'ja'));
-
-$app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
-    $translator->addResource('xliff', __DIR__.'/Resources/translations/messages.ja.xlf', 'ja');
-
-    return $translator;
-}));
 $app->register(new UrlGeneratorServiceProvider());
 $app->register(new ValidatorServiceProvider());
 
@@ -29,6 +23,7 @@ $app['custom_form'] = $app['form.factory']->create(new CustomType());
 $app['bug_form'] = $app['form.factory']->create(new BugType());
 $app['install_form'] = $app['form.factory']->create(new InstallType());
 
+$app['translator']->addResource('xliff', __DIR__.'/Resources/translations/messages.ja.xlf', 'ja');
 $app['twig']->addGlobal('community_url', 'http://sns.openpne.jp/communityTopic/new/938');
 
 //メニュー
